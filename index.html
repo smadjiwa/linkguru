@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#080512"><meta name="description" content="Himpunan Pautan Digital">
+<link rel="manifest" href="./manifest.webmanifest"><link rel="icon" href="./icon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="./icon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<title>Himpunan Pautan Digital</title>
+<style>
+:root{color-scheme:dark;--cyan:#00e5ff;--pink:#d946ef;--muted:#a1a1b5}*{box-sizing:border-box;margin:0;padding:0}
+body{min-height:100vh;min-height:100svh;padding:30px 15px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;overflow-x:hidden;position:relative;background:#040209;color:#f8fafc;font-family:Poppins,system-ui,sans-serif}
+.orb{position:fixed;border-radius:50%;filter:blur(110px);opacity:.28;pointer-events:none;z-index:0;will-change:transform}
+.orb.one{width:420px;height:420px;background:var(--pink);top:-150px;left:-140px;animation:cloud1 27s ease-in-out infinite alternate}
+.orb.two{width:480px;height:480px;background:var(--cyan);right:-180px;bottom:-170px;animation:cloud2 33s ease-in-out infinite alternate}
+.orb.three{width:280px;height:280px;background:#4f46e5;top:35%;left:10%;opacity:.18;animation:cloud3 23s ease-in-out infinite alternate}
+.cloudveil{position:fixed;inset:-35%;z-index:0;pointer-events:none;opacity:.16;background:radial-gradient(ellipse at 18% 35%,#d946ef55,transparent 32%),radial-gradient(ellipse at 72% 62%,#00e5ff44,transparent 34%),radial-gradient(ellipse at 48% 18%,#818cf833,transparent 28%);filter:blur(48px);animation:veil 48s ease-in-out infinite alternate}
+@keyframes cloud1{0%{transform:translate3d(-3vw,-2vh,0) scale(.94)}50%{transform:translate3d(13vw,8vh,0) scale(1.13)}100%{transform:translate3d(23vw,-4vh,0) scale(1.04)}}
+@keyframes cloud2{0%{transform:translate3d(3vw,2vh,0) scale(1.02)}50%{transform:translate3d(-15vw,-10vh,0) scale(.91)}100%{transform:translate3d(-25vw,4vh,0) scale(1.12)}}
+@keyframes cloud3{0%{transform:translate3d(-5vw,4vh,0) scale(.9)}100%{transform:translate3d(18vw,-8vh,0) scale(1.2)}}
+@keyframes veil{0%{transform:translate3d(-4%,1%,0)}100%{transform:translate3d(7%,2%,0) scale(1.02)}}
+.shell{width:min(100%,470px);position:relative;z-index:1;isolation:isolate;padding:2px;border-radius:28px;overflow:hidden;box-shadow:0 24px 65px #000b,0 0 32px #00e5ff18;animation:appear .7s ease both}
+.shell:before{content:"";position:absolute;inset:-100%;z-index:0;background:conic-gradient(transparent 0 25%,var(--cyan) 32%,transparent 40% 60%,var(--pink) 68%,transparent 76%);animation:spin 7s linear infinite}
+.inner{position:relative;z-index:1;border-radius:26px;background:rgba(12,8,25,.91);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);padding:38px 26px 30px}
+.brand{text-align:center;margin-bottom:28px}.logo-wrap{width:104px;height:104px;margin:0 auto 20px;display:flex;align-items:center;justify-content:center;background:transparent;border:0;border-radius:0;box-shadow:none}
+.logo{width:100%;height:100%;border-radius:0;object-fit:contain;display:block}h1{font-size:clamp(19px,5vw,23px);line-height:1.35;font-weight:600;letter-spacing:1px;overflow-wrap:anywhere}
+.subtitle{color:var(--muted);font-size:12px;margin-top:8px}.links{display:flex;flex-direction:column;gap:12px}
+.link-card{display:flex;align-items:center;gap:14px;min-height:62px;padding:12px 16px;border:1px solid #ffffff18;border-radius:15px;color:#f1f5f9;text-decoration:none;background:#ffffff0c;box-shadow:0 4px 14px #0005,inset 0 1px #ffffff0c;transition:transform .2s,border-color .2s,background .2s,box-shadow .2s;animation:itemin .4s ease both}
+.link-card:hover,.link-card:focus-visible{transform:translateY(-2px);border-color:var(--cyan);background:#00e5ff16;box-shadow:0 8px 22px #00e5ff20;outline:none}
+.iconbox{flex:0 0 36px;width:36px;height:36px;display:grid;place-items:center;border-radius:11px;background:#ffffff10;border:1px solid #ffffff16;color:var(--cyan);overflow:hidden}
+.iconbox i{font-size:16px}.iconbox img{display:block;width:100%;height:100%;padding:0;object-fit:cover;border-radius:10px}
+.linktitle{font-size:13px;font-weight:500;overflow-wrap:anywhere}.linkarrow{margin-left:auto;color:#94a3b8;font-size:12px}
+.state{color:var(--muted);text-align:center;font-size:13px;padding:24px 8px}.state.error{color:#fca5a5}
+.retry,.install{display:inline-flex;gap:8px;align-items:center;margin-top:12px;padding:8px 14px;border:1px solid #00e5ff66;border-radius:999px;color:var(--cyan);background:#00e5ff12;font:inherit;font-size:12px;cursor:pointer}
+.footer{position:relative;z-index:1;text-align:center;color:#ffffffa8;font-size:9px;letter-spacing:2.5px;line-height:1.8}.footer .dots{display:block;color:#ffffff55;letter-spacing:5px}.footer .line{display:block;color:#ffffffa8;letter-spacing:2.5px}
+.footer a{display:inline-block;margin-top:10px;color:#94a3b8;text-decoration:none;font-size:10px;letter-spacing:1px}.installbar{position:relative;z-index:2;text-align:center}.install[hidden]{display:none}
+@keyframes spin{to{transform:rotate(360deg)}}@keyframes appear{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}@keyframes itemin{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:480px){body{padding:20px 14px;justify-content:flex-start}.shell{margin:auto 0}.inner{padding:30px 18px 24px}.link-card{min-height:58px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+</style></head>
+<body>
+<div class="orb one"></div><div class="orb two"></div><div class="orb three"></div><div class="cloudveil"></div>
+<main class="shell"><div class="inner"><header class="brand">
+<div class="logo-wrap"><img id="mainLogo" class="logo" src="https://i.postimg.cc/B63sQmVh/Gemini-Generated-Image-9dp1499dp1499dp1.png" alt="Logo aplikasi"></div>
+<h1 id="mainTitle">Himpunan Pautan Digital</h1><p class="subtitle">Sila pilih pautan di bawah untuk maklumat lanjut</p>
+</header><section class="links" id="pautanKawasan" aria-live="polite" aria-busy="true"><p class="state"><i class="fas fa-spinner fa-spin"></i> Memuatkan pautan...</p></section></div></main>
+<div class="installbar"><button class="install" id="installBtn" hidden><i class="fas fa-download"></i> Pasang aplikasi</button></div>
+<footer class="footer"><span class="dots">•••</span><span class="line" id="footerLine1">HASIL CETUSAN IDEA</span><span class="line" id="footerLine2">MFH@SKARSMART</span><a id="adminLink" href="https://script.google.com/a/macros/moe-dl.edu.my/s/AKfycbx8PDqDYcIjHNBuCcJoQDujJR95g7sVnS2n9aHCg-1QiTC4HefmA3KgZ0Deh-jU37wcFQ/exec?page=admin"><i class="fas fa-gear"></i> SELENGGARA PAUTAN</a></footer>
+<script>
+const GAS_URL="https://script.google.com/a/macros/moe-dl.edu.my/s/AKfycbx8PDqDYcIjHNBuCcJoQDujJR95g7sVnS2n9aHCg-1QiTC4HefmA3KgZ0Deh-jU37wcFQ/exec";const CACHE_KEY="linkguru-home-v1";const kawasan=document.getElementById("pautanKawasan");let installPrompt=null;
+function safeUrl(v){try{const u=new URL(v);return u.protocol==="https:"||u.protocol==="http:"}catch(e){return false}}
+function readCache(){try{const v=JSON.parse(localStorage.getItem(CACHE_KEY)||"null");return v&&Array.isArray(v.pautan)?v:null}catch(e){return null}}
+function saveCache(v){try{localStorage.setItem(CACHE_KEY,JSON.stringify(v))}catch(e){}}
+function applyPayload(data){const ident=data.identiti||{};if(ident.tajuk){document.getElementById("mainTitle").textContent=ident.tajuk;document.title=ident.tajuk}
+if(ident.logo&&safeUrl(ident.logo))document.getElementById("mainLogo").src=ident.logo;document.getElementById("footerLine1").textContent=ident.footer1??"HASIL CETUSAN IDEA";document.getElementById("footerLine2").textContent=ident.footer2??"MFH@SKARSMART";renderLinks(data.pautan||[])}
+function showError(msg){kawasan.replaceChildren();const p=document.createElement("p");p.className="state error";p.textContent=msg;const b=document.createElement("button");b.className="retry";b.textContent="Cuba semula";b.onclick=loadRemote;p.append(document.createElement("br"),b);kawasan.appendChild(p);kawasan.setAttribute("aria-busy","false")}
+function renderLinks(items){kawasan.replaceChildren();if(!Array.isArray(items)||!items.length){const p=document.createElement("p");p.className="state";p.textContent="Tiada pautan yang sah ditemui dalam tab Pautan.";kawasan.appendChild(p);kawasan.setAttribute("aria-busy","false");return}
+const frag=document.createDocumentFragment();items.forEach((item,i)=>{if(!item||!item.tajuk||!safeUrl(item.url))return;const a=document.createElement("a");a.className="link-card";a.href=item.url;a.target="_blank";a.rel="noopener noreferrer";a.style.animationDelay=Math.min(i*45,450)+"ms";if(item.warna&&/^#[0-9a-f]{3,8}$/i.test(item.warna.trim()))a.style.backgroundColor=item.warna.trim();
+const ib=document.createElement("span");ib.className="iconbox";if(item.ikon&&safeUrl(item.ikon)){const img=document.createElement("img");img.src=item.ikon;img.alt="";img.loading="lazy";img.referrerPolicy="no-referrer";ib.appendChild(img)}else{const ic=document.createElement("i");ic.className=/^(fa[srb]?)\s+fa-[a-z0-9-]+(?:\s+[a-z0-9-]+)*$/i.test(item.ikon||"")?item.ikon:"fas fa-link";ib.appendChild(ic)}
+const t=document.createElement("span");t.className="linktitle";t.textContent=item.tajuk;const ar=document.createElement("i");ar.className="fas fa-arrow-up-right-from-square linkarrow";a.append(ib,t,ar);frag.appendChild(a)});
+if(!frag.childNodes.length){const p=document.createElement("p");p.className="state";p.textContent="Tiada pautan dengan URL yang sah.";kawasan.appendChild(p)}else kawasan.appendChild(frag);kawasan.setAttribute("aria-busy","false")}
+function loadRemote(){if(!readCache())kawasan.innerHTML='<p class="state"><i class="fas fa-spinner fa-spin"></i> Memuatkan pautan...</p>';
+const script=document.createElement("script");let done=false;const timeout=setTimeout(()=>{cleanup();if(!readCache())showError("Sambungan ke pelayan mengambil masa terlalu lama. Cuba semula.")},12000);
+function cleanup(){if(done)return;done=true;clearTimeout(timeout);script.remove();delete window.linkGuruCallback}
+window.linkGuruCallback=function(payload){cleanup();if(!payload||payload.success!==true){if(!readCache())showError(payload&&payload.error?payload.error:"Data tidak dapat dimuatkan.");return}
+const data={pautan:payload.pautan||[],identiti:payload.identiti||{}};applyPayload(data);saveCache(data)};
+script.onerror=function(){cleanup();if(!readCache())showError("Tidak dapat menghubungi pelayan Google Apps Script.")};
+script.src=GAS_URL+"?action=home&callback=linkGuruCallback&v=1";document.head.appendChild(script)}
+const cached=readCache();if(cached)applyPayload(cached);loadRemote();
+window.addEventListener("beforeinstallprompt",e=>{e.preventDefault();installPrompt=e;document.getElementById("installBtn").hidden=false});
+document.getElementById("installBtn").addEventListener("click",async()=>{if(!installPrompt)return;installPrompt.prompt();await installPrompt.userChoice;installPrompt=null;document.getElementById("installBtn").hidden=true});
+window.addEventListener("appinstalled",()=>{document.getElementById("installBtn").hidden=true});
+if("serviceWorker" in navigator)window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(console.warn));
+</script></body></html>
